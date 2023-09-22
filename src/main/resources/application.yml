@@ -5,6 +5,8 @@ spring:
   application:
     name: order-service
   datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:testdb
     url: jdbc:mariadb://localhost:3306/mydb
     username: root
     password: test1357
@@ -28,4 +30,13 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, busrefresh, info, metrics, prometheus # info, metrics, prometheus는 io.micrometer를 사용할 때 쓰이는것들
+
+
 
